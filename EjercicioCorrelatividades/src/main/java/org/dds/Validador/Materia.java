@@ -6,7 +6,7 @@ import java.util.*;
  *
  */
 public class Materia {
-    String nombre;
+    private String nombre;
 
     private List<Materia> tenerAprobadas;
 
@@ -24,23 +24,24 @@ public class Materia {
 
 
     public List<Materia> tenerCursadas() {
-        // TODO implement here
-        return null;
+        return this.tenerCursadas;
     }
 
-    /**
-     * @return
-     */
     public List<Materia> tenerAprobadas() {
-        // TODO implement here
-        return null;
+        return this.tenerAprobadas;
     }
-
+    public String getNombre() {
+        return this.nombre;
+    }
     public void addTenerAprobada(Materia m) {
         this.tenerAprobadas.add(m);
     }
 
     public void addTenerCursada(Materia m) {
         this.tenerCursadas.add(m);
+    }
+
+    public List<Materia> getCorrelativasCursada() {
+        return this.tenerCursadas;
     }
 }

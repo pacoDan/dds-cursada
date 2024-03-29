@@ -11,6 +11,7 @@ public class Inscripcion {
      * Default constructor
      */
     public Inscripcion() {
+        this.asignaturas = new ArrayList<Materia>();
     }
 
     /**
@@ -32,7 +33,7 @@ public class Inscripcion {
     }
 
     public void aniadirMateria(Materia m) {
-        // TODO implement here
+        this.asignaturas.add(m);
     }
 
     /**
@@ -40,7 +41,7 @@ public class Inscripcion {
      */
     public List<Materia> verMateriasEnIncripcion() {
         // TODO implement here
-        return null;
+        return this.asignaturas;
     }
 
 }

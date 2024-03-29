@@ -36,14 +36,10 @@ public class Alumno {
     /**
      * @return
      */
-    public List<Materia> materiasAnotadas() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @return
-     */
+//    public List<Materia> materiasAnotadas() {
+//        // TODO implement here
+//        return null;
+//    }
     public List<Materia> materiasAprobadas() {
         // TODO implement here
         return this.materiasAprobadas;
@@ -67,5 +63,16 @@ public class Alumno {
 
     public void aniadirAprobada(Materia materia) {
         this.materiasAprobadas().add(materia);
+    }
+
+    public Materia getMateriaByNombre(String materia) {
+        var materias = this.inscripcionActual.verMateriasEnIncripcion();
+        return materias.stream().findAny().filter(m -> m.getNombre().equals(materia)).orElse(null);
+    }
+
+    public void inscribirMateria(Materia dds) {
+        if(inscripcionActual==null)
+            inscripcionActual=new Inscripcion();
+        this.inscripcionActual.aniadirMateria(dds);
     }
 }

@@ -14,7 +14,9 @@ public class CorrelativaTest {
             analisis = new Materia("analisis"),
             algoritmos = new Materia("algoritmos"),
             discreta = new Materia("discreta"),
-            dds=new Materia("disenio");
+            dds=new Materia("disenio"),
+            so = new Materia("operativos"),
+            arquitectura = new Materia("arquitectura");
 
     @BeforeEach
     void materiasDePepito() {
@@ -35,6 +37,12 @@ public class CorrelativaTest {
         pepito.inscribirMateria(dds);
     }
 
+    @BeforeEach
+    void correlativasSO(){
+        so.addTenerCursada(algoritmos);
+        so.addTenerCursada(discreta);
+        so.addTenerCursada(arquitectura);
+    }
 
     @Test
     @DisplayName("Correlativas DDS tener cursadas")
@@ -50,11 +58,8 @@ public class CorrelativaTest {
         assertEquals(dds.tenerAprobadas(), pepito.getMateriaByNombre("disenio").tenerAprobadas());
     }
     @Test
-    @DisplayName("Para cursar SO")
-    void paraCursarSO() {
-        var materiasAprobadasDePepito = pepito.materiasAprobadas();
-        var materiasCursadasDePepito = pepito.materiasCursadas();
-        var materiasDePepito = materiasAprobadasDePepito.addAll(materiasCursadasDePepito);
-        assertTrue(true);
+    @DisplayName("No puede cursar SO por que le falta cursar ARQ")
+    void tener_cursadas_para_SO() {
+        assertFalse(pepito.materiasCursadas().containsAll(so.tenerCursadas()));
     }
 }

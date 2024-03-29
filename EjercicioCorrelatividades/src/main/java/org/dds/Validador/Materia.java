@@ -3,29 +3,26 @@ package org.dds.Validador;
 import java.util.*;
 
 /**
- * 
+ *
  */
 public class Materia {
+    String nombre;
 
-    /**
-     * Default constructor
-     */
-    public Materia() {
-    }
-
-    /**
-     * 
-     */
     private List<Materia> tenerAprobadas;
 
-    /**
-     * 
-     */
     private List<Materia> tenerCursadas;
 
-    /**
-     * @return
-     */
+    public Materia() {
+        this.tenerCursadas= new ArrayList<Materia>();
+        this.tenerAprobadas= new ArrayList<Materia>();
+    }
+
+    public Materia(String nombre) {
+        this();
+        this.nombre=nombre;
+    }
+
+
     public List<Materia> tenerCursadas() {
         // TODO implement here
         return null;
@@ -39,4 +36,11 @@ public class Materia {
         return null;
     }
 
+    public void addTenerAprobada(Materia m) {
+        this.tenerAprobadas.add(m);
+    }
+
+    public void addTenerCursada(Materia m) {
+        this.tenerCursadas.add(m);
+    }
 }

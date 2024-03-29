@@ -6,16 +6,16 @@ import java.util.*;
  * 
  */
 public class Alumno {
-
-    /**
-     * Default constructor
-     */
+    String nombre;
+    List<Materia> materiasCursadas,materiasAprobadas;
     public Alumno() {
+        materiasCursadas= new ArrayList<Materia>();
+        materiasAprobadas= new ArrayList<Materia>();
     }
-
-    /**
-     * 
-     */
+    public Alumno(String nombre){
+        this();
+        this.nombre=nombre;
+    }
     public String datos;
 
     /**
@@ -46,19 +46,26 @@ public class Alumno {
      */
     public List<Materia> materiasAprobadas() {
         // TODO implement here
-        return null;
+        return this.materiasAprobadas;
     }
 
     /**
      * @return
      */
     public List<Materia> materiasCursadas() {
-        // TODO implement here
-        return null;
+
+        return this.materiasCursadas;
     }
 
     public void incribirMateria(Materia m) {
         // TODO implement here
     }
 
+    public void aniadirCursada(Materia m) {
+        this.materiasCursadas().add(m);
+    }
+
+    public void aniadirAprobada(Materia materia) {
+        this.materiasAprobadas().add(materia);
+    }
 }

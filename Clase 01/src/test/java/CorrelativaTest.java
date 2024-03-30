@@ -14,7 +14,7 @@ public class CorrelativaTest {
             analisis = new Materia("analisis"),
             algoritmos = new Materia("algoritmos"),
             discreta = new Materia("discreta"),
-            dds=new Materia("disenio"),
+            dds = new Materia("disenio"),
             so = new Materia("operativos"),
             arquitectura = new Materia("arquitectura");
 
@@ -25,6 +25,7 @@ public class CorrelativaTest {
         pepito.aniadirAprobada(algoritmos);
         pepito.aniadirAprobada(discreta);
     }
+
     @BeforeEach
     void correlativasDisenio() {
         dds.addTenerAprobada(discreta);
@@ -32,31 +33,35 @@ public class CorrelativaTest {
         dds.addTenerCursada(pdep);
         dds.addTenerCursada(analisis);
     }
+
     @BeforeEach
-    void pepitoSeInscribe(){
+    void pepitoSeInscribe() {
         pepito.inscribirMateria(dds);
     }
 
     @BeforeEach
-    void correlativasSO(){
+    void correlativasSO() {
         so.addTenerCursada(algoritmos);
         so.addTenerCursada(discreta);
         so.addTenerCursada(arquitectura);
     }
 
     @Test
-    @DisplayName("Correlativas DDS tener cursadas")
-    void paraCursarDDSTenerCursadas() {
-        assertEquals(dds.tenerCursadas(), pepito.getMateriaByNombre("disenio").tenerCursadas());
-
-        assertEquals(dds.tenerAprobadas(), pepito.getMateriaByNombre("disenio").tenerAprobadas());
+    @DisplayName("Correlativas DDS tener cursadas y aprobadas")
+    void paraCursarDDSTenerCursadasYAprobadas() {
+        assertAll("Correlativas DDS",
+                () -> assertEquals(dds.tenerCursadas(), pepito.getMateriaByNombre("disenio").tenerCursadas()),
+                () -> assertEquals(dds.tenerAprobadas(), pepito.getMateriaByNombre("disenio").tenerAprobadas())
+        );
     }
+
     @Test
     @DisplayName("Correlativas DDS tener aprobadas")
     void paraCursarDDSTenerAprobadas() {
 
         assertEquals(dds.tenerAprobadas(), pepito.getMateriaByNombre("disenio").tenerAprobadas());
     }
+
     @Test
     @DisplayName("No puede cursar SO por que le falta cursar ARQ")
     void tener_cursadas_para_SO() {

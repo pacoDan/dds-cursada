@@ -44,4 +44,7 @@ public class Materia {
     public List<Materia> getCorrelativasCursada() {
         return this.tenerCursadas;
     }
+    public List<Materia> getCorrelativasAprobadas() {
+        return this.tenerAprobadas;
+    }
 }

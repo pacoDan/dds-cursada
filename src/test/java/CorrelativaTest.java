@@ -1,4 +1,5 @@
 import org.dds.Validador.Alumno;
+import org.dds.Validador.Inscripcion;
 import org.dds.Validador.Materia;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -17,7 +18,7 @@ public class CorrelativaTest {
             dds = new Materia("disenio"),
             so = new Materia("operativos"),
             arquitectura = new Materia("arquitectura");
-
+    Inscripcion inscripcionDePepito= new Inscripcion(pepito);
     @BeforeEach
     void materiasDePepito() {
         pepito.aniadirCursada(pdep);
@@ -36,7 +37,8 @@ public class CorrelativaTest {
 
     @BeforeEach
     void pepitoSeInscribe() {
-        pepito.inscribirMateria(dds);
+//        pepito.inscribirMateria(dds);
+        inscripcionDePepito.inscribirMateria(dds);
     }
 
     @BeforeEach
@@ -45,7 +47,11 @@ public class CorrelativaTest {
         so.addTenerCursada(discreta);
         so.addTenerCursada(arquitectura);
     }
-
+    @Test
+    @DisplayName("Comprobar inscripcion de pepito")
+    void comprobar(){
+        assertTrue(inscripcionDePepito.aprobada());
+    }
     @Test
     @DisplayName("Correlativas DDS tener cursadas y aprobadas")
     void paraCursarDDSTenerCursadasYAprobadas() {

@@ -1,2 +1,1 @@
-
-![ValidadorDeInscripciones](https://github.com/pacoDan/dds-cursada/assets/27025002/2c3a7b2b-2b9b-4424-a4c9-9b67231f9fe6)
+![image](https://github.com/pacoDan/dds-cursada/assets/27025002/74b0079d-7f4c-408b-90dd-380b9d025802)
